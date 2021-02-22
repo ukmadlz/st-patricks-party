@@ -7,8 +7,8 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-        <script src="/pusher.js"></script>
+        <script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+        <script src="/ably.js"></script>
       </Head>
 
       <main className={styles.main}>
