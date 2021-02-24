@@ -1,5 +1,7 @@
 import Ably from "ably/promises";
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 class PresenceComponent extends React.Component {
     constructor(props) {
@@ -15,7 +17,6 @@ class PresenceComponent extends React.Component {
         const presence = this.channel.presence;
         // Individual events
         presence.subscribe((data, err) => {
-            console.log(presence.members);
             this.setState({ members: presence.members.map});
         });
         presence.enter('ME');
@@ -25,15 +26,16 @@ class PresenceComponent extends React.Component {
         // Use Ably's realtime presence detection
         const presence = this.channel.presence;
         // DAS BOOT FROM CHANNEL!
+        this.setState({ members: presence.members.map});
         presence.unsubscribe();
     }
 
     render() {
         const membersList = Object.values(this.state.members).map((member) => {
-            return <li>{member.connectionId}</li>
+            return <FontAwesomeIcon key={member.connectionId} icon={faUser}  size="9x" />
         })
         return (
-            <ul>{membersList}</ul>
+            <div>{membersList}</div>
         );
     }
 }

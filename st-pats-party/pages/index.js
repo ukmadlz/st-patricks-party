@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import styles from '../styles/Home.module.css'
 
 const PresenceComponent = dynamic(() => import('../components/PresenceComponent'), { ssr: false});
+const VideoComponent = dynamic(() => import('../components/VideoComponent'), { ssr: false});
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to St Patricks Party
         </h1>
+        <VideoComponent />
         <PresenceComponent/>
       </main>
     </div>
