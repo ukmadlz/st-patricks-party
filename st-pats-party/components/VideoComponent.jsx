@@ -34,7 +34,6 @@ class VideoComponent extends React.Component {
                 <Video
                     innerRef={this.vidRef}
                     publicId="st-pats-party/dog"
-                    controls={true}
                 />
             </CloudinaryContext>);
     }
