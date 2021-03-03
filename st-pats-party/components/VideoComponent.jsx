@@ -24,6 +24,7 @@ class VideoComponent extends React.Component {
                 }
             }
         });
+        
     }
 
     render() {
@@ -33,7 +34,8 @@ class VideoComponent extends React.Component {
             >
                 <Video
                     innerRef={this.vidRef}
-                    publicId="st-pats-party/dog"
+                    publicId="st-pats-party/Big_Buck_Bunny_4K.webm.360p.vp9"
+                    id="videoplayer"
                 />
             </CloudinaryContext>);
     }
