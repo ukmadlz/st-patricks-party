@@ -27,7 +27,10 @@ class VideoComponent extends React.Component {
     }
 
     render() {
-        return(<CloudinaryContext cloudName="elsmore-me" >
+        return(<CloudinaryContext
+                cloudName="elsmore-me"
+                className="flex justify-center"
+            >
                 <Video
                     innerRef={this.vidRef}
                     publicId="st-pats-party/dog"

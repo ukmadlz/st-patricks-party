@@ -32,10 +32,10 @@ class PresenceComponent extends React.Component {
 
     render() {
         const membersList = Object.values(this.state.members).map((member) => {
-            return <FontAwesomeIcon key={member.connectionId} icon={faUser}  size="9x" />
+            return <FontAwesomeIcon key={member.connectionId} icon={faUser}  size="2x" />
         })
         return (
-            <div>{membersList}</div>
+            <div className="flex justify-center">{membersList}</div>
         );
     }
 }
