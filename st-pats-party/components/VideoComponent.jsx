@@ -21,10 +21,10 @@ class VideoComponent extends React.Component {
                 if (messageData.play) {
                     video.currentTime = messageData.play;
                     video.play();
+                    console.log('Play at %s', messageData.play);
                 }
             }
         });
-        
     }
 
     render() {
