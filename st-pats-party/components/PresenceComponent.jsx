@@ -17,7 +17,13 @@ class PresenceComponent extends React.Component {
         const presence = this.channel.presence;
         // Individual events
         presence.subscribe((data, err) => {
-            this.setState({ members: presence.members.map});
+            const { connectionId, action } = data;
+            const membersObject = { members: presence.members.map };
+            // Irish G'bye
+            if(action == 'leave') {
+                membersObject.bounce = connectionId;
+            }
+            this.setState(membersObject);
         });
         presence.enter('ME');
     }
@@ -34,7 +40,7 @@ class PresenceComponent extends React.Component {
         const membersList = Object.values(this.state.members).map((member) => {
             return <div
                 key={member.connectionId}
-                className="p-3"
+                className="p-3 "
             >
                 <FontAwesomeIcon
                     icon={faUser}
@@ -42,6 +48,18 @@ class PresenceComponent extends React.Component {
                 />
             </div>
         })
+        if (this.state.bounce) {
+            const bouncer = <div
+                key={this.state.bounce}
+                className="p-3 animate-spin"
+            >
+                <FontAwesomeIcon
+                    icon={faUser}
+                    size="2x"
+                />
+            </div>
+            membersList.push(bouncer);
+        }
         return (
             <div className="flex justify-center pt-2">{membersList}</div>
         );
