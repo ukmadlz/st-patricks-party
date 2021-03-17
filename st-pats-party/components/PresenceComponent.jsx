@@ -60,9 +60,7 @@ class PresenceComponent extends React.Component {
         })
         if (this.state.bounce && this.state.bounce.length) {
             const bouncer = this.state.bounce.filter((member) => {
-                const difference = (((new Date()).getTime() - member.timestamp.getTime()) < this.irishGoodbye)
-                console.log(difference);
-                return difference;
+                return (((new Date()).getTime() - member.timestamp.getTime()) < this.irishGoodbye)
             })
             .map((member) => {
                 return <div
@@ -75,7 +73,6 @@ class PresenceComponent extends React.Component {
                     />
                 </div>
             });
-            console.log(membersList);
             membersList = membersList.concat(bouncer);
         }
         return (
